@@ -1,0 +1,22 @@
+{
+  "name": "wifi-signal-monitor",
+  "version": "1.0.0",
+  "description": "A mac desktop app to monitor and report when wifi signal strength is low.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
+  },
+  "keywords": [
+    "RSSI",
+    "wifi signal monitor"
+  ],
+  "author": "Takasi venkata sandeep",
+  "license": "ISC",
+  "dependencies": {
+    "shelljs": "^0.8.5"
+  },
+  "devDependencies": {
+    "electron": "^20.0.1"
+  }
+}

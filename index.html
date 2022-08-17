@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Wifi Signal Monitor</title>
+  </head>
+  <body>
+    <div id="mainWrapper">
+      <div id="noInternetWrapper">
+        <img id="noInternetImage" width="200" src="no-internet.png" />
+        <p id="noInternetText">
+          Oops! Looks like you aren't connected to any network
+        </p>
+        <button id="tryAgain" class="tryAgain">Try Again</button>
+      </div>
+      <div id="formWrapper" class="formWrapper">
+        <form id="form1">
+          <h1 id="mainHeading">Wifi Signal Monitor</h1>
+          <div id="contentWrapper" class="contentWrapper">
+            <div id="configWrapper" class="configWrapper">
+              <p id="signalValueWrapper">
+                <span id="rssiText"> RSSI </span>
+                <span id="signalValue"> </span>
+              </p>
+              <input
+                id="sleepTime"
+                placeholder="Sleep time (s)"
+                type="number"
+                required
+                min="1"
+              />
+              <input
+                id="frequency"
+                placeholder="Signal dip frequency"
+                type="number"
+                required
+                min="1"
+              />
+              <input
+                id="webhookUrl"
+                placeholder="Slack webhook url"
+                type="url"
+              />
+              <div id="userPreferenceWrapper">
+                <div class="checkboxWrapper">
+                  <input
+                    id="notifyOnSlack"
+                    class="checkboxInput"
+                    type="checkbox"
+                  />
+                  <span> Notify on slack </span>
+                  <span class="tooltipWrapper"
+                    >i
+                    <span class="tooltip">
+                      A notification will be sent on desired slack channel.
+                    </span>
+                  </span>
+                </div>
+                <div class="checkboxWrapper">
+                  <input
+                    id="autoRestart"
+                    class="checkboxInput"
+                    type="checkbox"
+                  />
+                  <span> Auto monitor </span>
+                  <span class="tooltipWrapper"
+                    >i
+                    <span class="tooltip">
+                      The monitoring will start automatically on launching the
+                      app.
+                    </span>
+                  </span>
+                </div>
+                <div class="checkboxWrapper">
+                  <input
+                    id="preserveLogs"
+                    class="checkboxInput"
+                    type="checkbox"
+                  />
+                  <span> Preserve logs </span>
+                  <span class="tooltipWrapper"
+                    >i
+                    <span class="tooltip">
+                      Last 500 logs will be preserved and can be downloaded.
+                    </span>
+                  </span>
+                </div>
+              </div>
+              <button id="startMonitoring" type="submit">
+                Start Monitoring
+              </button>
+              <!-- <button id="changeConfig">Change Config</button> -->
+              <button id="stopMonitoring" type="submit">Stop Monitoring</button>
+              <button id="downloadLogs" type="button">Download Logs</button>
+              <div id="notesWrapper" class="notesWrapper">
+                <h3 class="notesText">Notes</h3>
+                <ul>
+                  <li>
+                    Sleep time indicates the interval after which the monitoring
+                    should recurr.
+                  </li>
+                  <li>
+                    Signal dip frequency indicates the number of signal dips in
+                    a row after which the notification will be sent to desired
+                    slack channel.
+                  </li>
+                  <li>
+                    webhook url is used to send a message to a desired slack
+                    channel
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div id="logWrapper" class="logWrapper">
+              <!-- <table class="tableHeader">
+                <th>
+                  <td>Wifi Name</td>
+                  <td>Timestamp</td>
+                  <td class="rssiTd">RSSI</td>
+                </th>
+              </table> -->
+              <table id="timeLogTable">
+                <tr class="tableHeader">
+                  <td>Wifi Name</td>
+                  <td>Timestamp</td>
+                  <td>RSSI</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script src="./renderer.js"></script>
+  </body>
+</html>
