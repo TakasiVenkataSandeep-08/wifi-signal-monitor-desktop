@@ -2,3 +2,7 @@ node_modules/
 package-lock.json
 dist/
 build/
+.env
+electron-builder.yml
+entitlements.mac.plist
+notarize.js
