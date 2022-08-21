@@ -209,7 +209,7 @@ input:not([type="checkbox"])::placeholder{
 }
 .configWrapperAfterStart {
     width: 100%;
-    height: 20vh;
+    height: auto;
     padding: 0 20px;
     display: flex;
     flex-direction: row;
@@ -372,3 +372,11 @@ button:hover{
     text-decoration: underline;
 }
 
+@media only screen and (max-width: 900px) {
+    .configWrapper {
+            width: 100%;
+        }
+    .checkboxWrapper {
+            font-size: 11px;
+        }
+}
