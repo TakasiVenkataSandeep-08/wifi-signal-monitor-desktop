@@ -1,14 +1,14 @@
-# wifi-signal-monitor-desktop
+# Wifi-Signal-Monitor-Desktop
 
 #### Description
 
-**wifi-signal-monitor-desktop** is a desktop application to monitor wifi signal strength on your mac and post a message to a desired channel on slack when ever the RSSI value is less than -67 dBm.
+**Wifi Signal Monitor** is a desktop application to monitor wifi signal strength on your mac and post a message to a desired channel on slack when ever the RSSI value is less than -67 dBm.
 
 ## Key Features
 
 - Auto monitor on app launch.
-- Preserve and download RSSI logs.
-- Notify on slack thorugh webhook url.
+- Preserve and download latest 500 RSSI logs.
+- Notify on slack if a valid slack webhook url is provided.
 
 ## Local setup
 
@@ -27,15 +27,15 @@ npm run start
 ### Create electron build for mac app
 
 ```sh
-npx electron-builder build --mac
+npx run build
 ```
 
 ## Notes
 
 - Sleep time indicates the interval after which the monitoring
   should recurr.
-- Signal dip frequency indicates the number of signal dips in
-  a row after which the notification will be sent to desired
-  slack channel.
-- webhook url is used to send a message to a desired slack
+- Signal dip frequency indicates the number of signal dips (< -67dBm) in
+  a row after which a Desktop notification is sent and a notification will be sent to desired
+  slack channel (if notify on slack option is checked and a valid webhook url is provided).
+- webhook url is required to send notifications to a desired slack
   channel.
