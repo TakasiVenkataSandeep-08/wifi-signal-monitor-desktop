@@ -33,7 +33,7 @@ npx run build
 ## Notes
 
 - Sleep time indicates the interval after which the monitoring
-  should recurr.
+  should recur.
 - Signal dip frequency indicates the number of signal dips (< -67dBm) in
   a row after which a Desktop notification is sent and a notification will be sent to desired
   slack channel (if notify on slack option is checked and a valid webhook url is provided).
