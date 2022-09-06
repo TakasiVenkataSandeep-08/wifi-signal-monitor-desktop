@@ -5,7 +5,8 @@
   "main": "./src/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "electron ."
+    "start": "electron .",
+    "build": "dotenv --cross-env NODE_ENV=production electron-builder build --mac"
   },
   "keywords": [
     "RSSI",
@@ -14,8 +15,8 @@
   "author": "Takasi venkata sandeep",
   "license": "ISC",
   "devDependencies": {
-    "dotenv": "^16.0.1",
+    "dotenv-cli": "^6.0.0",
     "electron": "^20.0.1",
-    "electron-notarize": "^1.2.1"
+    "electron-builder": "^23.3.3"
   }
 }
